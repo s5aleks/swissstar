@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiss Star - Premium Escort Zürich</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --gold-dark: #b8941f;
+            --whatsapp: #25D366;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(255,255,255,0.05);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Age Verification */
+        .age-verification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(20,20,20,0.98));
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .age-modal {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 50px;
+            text-align: center;
+            max-width: 500px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        .logo-large {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .age-modal h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .age-modal p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .age-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .age-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 160px;
+        }
+
+        .age-confirm {
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            color: #000;
+        }
+
+        .age-deny {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 2px solid var(--gold);
+        }
+
+        .age-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Background */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.92)),
+                url('./media/photos/hero-bg.jpg') no-repeat center center/cover;
+        }
+
+        /* Header */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 0;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 1rem;
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(45deg, var(--whatsapp), #1da851);
+            color: white;
+        }
+
+        .btn-phone {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-small {
+            padding: 12px 24px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        /* Girls Gallery */
+        .girls-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .girl-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .girl-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .girl-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .girl-img-container {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .girl-carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .girl-carousel-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .girl-carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .girl-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .girl-img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            z-index: 3;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .girl-carousel:hover .carousel-arrow {
+            opacity: 1;
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .girl-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .girl-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gold);
+        }
+
+        .girl-stats {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .girl-stat {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .girl-desc {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .girl-features {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .girl-features li {
+            padding: 6px 0;
+            font-size: 0.85rem;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .girl-features li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .girl-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .girl-actions .btn {
+            flex: 1;
+            margin: 0;
+            padding: 10px 16px;
+            font-size: 0.85rem;
+        }
+
+        /* Services */
+        .service-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background: var(--card-bg);
+            margin: 15px 0;
+            padding: 20px 25px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--gold);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-item:hover {
+            transform: translateX(10px);
+            border-left-color: var(--gold-light);
+        }
+
+        .service-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .service-price {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.15), rgba(37, 211, 102, 0.1));
+            z-index: -1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Quick Contact */
+        .quick-contact {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
+            border-top: 2px solid var(--gold);
+            z-index: 90;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Floating Buttons */
+        .floating-wa {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--whatsapp), #1da851);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-phone {
+            position: fixed;
+            bottom: 160px;
+            right: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-wa:hover, .floating-phone:hover {
+            transform: scale(1.15);
+            animation: none;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.8);
+            color: #888;
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons, .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .girls-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .header-cta {
+                display: none;
+            }
+
+            .floating-wa {
+                width: 55px;
+                height: 55px;
+                bottom: 80px;
+                right: 15px;
+                font-size: 1.6rem;
+            }
+
+            .floating-phone {
+                width: 45px;
+                height: 45px;
+                bottom: 145px;
+                right: 15px;
+                font-size: 1.2rem;
+            }
+
+            .age-modal {
+                padding: 30px;
+                margin: 20px;
+            }
+
+            .age-buttons {
+                flex-direction: column;
+            }
+
+            .age-btn {
+                width: 100%;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .girl-img-container {
+                height: 300px;
+            }
+
+            .carousel-arrow {
+                opacity: 1;
+                background: rgba(0,0,0,0.7);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .girl-img-container {
+                height: 250px;
+            }
+
+            .quick-contact {
+                padding: 8px 0;
+            }
+
+            .contact-buttons .btn {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Age Verification -->
+    <div class="age-verification" id="ageVerification">
+        <div class="age-modal">
+            <div class="logo-large">
+    <img src="./media/logo.png" alt="Swiss Star" 
+         onerror="this.style.display='none'; this.parentNode.innerHTML='⭐'" 
+         style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+</div>
+            <h2>Willkommen bei Swiss Star</h2>
+            <p>Um unsere exklusiven Dienstleistungen zu erkunden, bestätigen Sie bitte, dass Sie mindestens 18 Jahre alt sind.</p>
+            <div class="age-buttons">
+                <button class="age-btn age-confirm" onclick="confirmAge()">Ja, ich bin 18+</button>
+                <button class="age-btn age-deny" onclick="denyAge()">Nein, ich verlasse die Seite</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="./media/logo.png" alt="Swiss Star">
+                    </div>
+                    <div class="logo-text">Swiss Star</div>
+                </div>
+                <div class="header-cta">
+                    <a href="https://wa.me/41791234567" class="btn btn-whatsapp btn-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Kontakt
+                    </a>
+                    <a href="tel:+41791234567" class="btn btn-phone btn-small">
+                        <i class="fas fa-phone"></i> Anruf
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Background -->
+    <div class="parallax-bg"></div>
+
+    <!-- Floating Buttons -->
+    <a class="floating-wa" href="https://wa.me/41791234567" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a class="floating-phone" href="tel:+41791234567">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Swiss Star</h1>
+            <p>Zürichs exklusivstes Escort-Agency. Premium Begleiterinnen, absolute Diskretion, unvergessliche Erlebnisse.</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn">Mädchen entdecken</a>
+                <a href="https://wa.me/41791234567" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Jetzt buchen
+                </a>
+                <a href="tel:+41791234567" class="btn btn-phone">
+                    <i class="fas fa-phone"></i> Sofort anruf
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Features -->
+    <section>
+        <div class="container">
+            <h2>Warum Swiss Star?</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Premium Qualität</h3>
+                    <p>Strengste Auswahl unserer Begleiterinnen</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Absolute Diskretion</h3>
+                    <p>100% Vertraulichkeit garantiert</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⏰</div>
+                    <h3>24/7 Service</h3>
+                    <p>Rund um die Uhr für Sie da</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Escort & Privatwohnungen</h3>
+                    <p>Wir legen besonderen Wert auf Diskretion. Unsere Damen fahren gerne zu dir nach Hause bzw. zu einem Ort deiner Wahl oder Sie besuchen dich in einer diskreten Privatwohnung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Girls Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Unsere Premium Begleiterinnen</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #ccc;">
+                6 exklusive Damen stehen für Sie bereit
+            </p>
+            
+            <div class="girls-showcase" id="girlsShowcase">
+                <!-- Girls will be loaded by JavaScript -->
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/41791234567?text=Hallo!%20Ich%20möchte%20eine%20Beratung%20für%20die%20Auswahl%20einer%20Begleiterin." class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Persönliche Beratung
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Unsere Services & Preise</h2>
+            <div class="service-list">
+                <div class="service-item">
+                    <span class="service-name">1 Stunde Premium Treffen</span>
+                    <span class="service-price">500 CHF</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-name">Abendbegleitung (2-3 Stunden)</span>
+                    <span class="service-price">900 CHF</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-name">Übernachtung (12 Stunden)</span>
+                    <span class="service-price">1.600 CHF</span>
+                </div>
+                <div class="service-item">
+                    <span class="service-name">Wochenende (24+ Stunden)</span>
+                    <span class="service-price">Auf Anfrage</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/41791234567?text=Hallo!%20Ich%20hätte%20gerne%20eine%20detaillierte%20Preisauskunft." class="btn" target="_blank">
+                    <i class="fas fa-euro-sign"></i> Detaillierte Preise
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Häufige Fragen</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Ist der Service legal in Zürich?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Ja, unsere Tätigkeit ist im Kanton Zürich vollständig legal.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Wie läuft die Buchung ab?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Kontaktieren Sie uns per WhatsApp oder Telefon, wir besprechen Ihre Wünsche und organisieren alles diskret.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Kann ich eine bestimmte Dame buchen?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Selbstverständlich! Nennen Sie uns Ihren Favoriten und wir prüfen die Verfügbarkeit.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Bereit für ein Premium Erlebnis?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                Kontaktieren Sie uns jetzt für Ihre unvergessliche Zeit in Zürich.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/41791234567" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:+41791234567" class="btn btn-phone">
+                    <i class="fas fa-phone"></i> Telefon
+                </a>
+                <a href="#gallery" class="btn">
+                    <i class="fas fa-images"></i> Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Swiss Star &copy; 2024 | Premium Escort Agency Zürich</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">
+                Diskretion & Sicherheit garantiert | +41 79 123 45 67 | 24/7
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Age Verification
+        function confirmAge() {
+            document.getElementById('ageVerification').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            localStorage.setItem('ageVerified', 'true');
+        }
+
+        function denyAge() {
+            window.location.href = 'https://www.google.com';
+        }
+
+        if (localStorage.getItem('ageVerified') === 'true') {
+            document.getElementById('ageVerification').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        } else {
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Girls Data
+        const girlsData = [
+            {
+                id: 1,
+                name: "Cecile",
+                age: "25",
+                height: "175cm",
+                images: [
+                    "./media/photos/girls/1.png",
+                    "./media/photos/girls/1_1.png", 
+                    "./media/photos/girls/1_2.png",
+                    "./media/photos/girls/1_3.png"
+                ],
+                description: "Leidenschaftliche Französin mit Sinn für Romantik und intensiven Momenten.",
+                features: [
+                    "Französisch, Deutsch, Spanisch",
+                    "Girlfriend Erotik & Schmusen",
+                    "Service für Senioren",
+                    "Erotische Massagen & Body to Body"
+                ],
+                badge: "⭐ Premium",
+                whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Cecile."
+            },
+            {
+                id: 2,
+                name: "Natalie", 
+                age: "23",
+                height: "169cm",
+                images: [
+                    "./media/photos/girls/6.png",
+                    "./media/photos/girls/6_1.png",
+                    "./media/photos/girls/6_2.png", 
+                    "./media/photos/girls/6_3.png"
+                ],
+                description: "Romantische Träumerin mit herzerwärmendem Lächeln für zärtliche Momente.",
+                features: [
+                    "Deutsch, Französisch",
+                    "Romantik & Striptease",
+                    "Girlfriend Erotik",
+                    "Erotische Massagen & Body to Body"
+                ],
+                badge: "💖 Romantik", 
+                               whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Natalie."
+            },
+            {
+                id: 3,
+                name: "Elena",
+                age: "27", 
+                height: "172cm",
+                images: [
+                    "./media/photos/girls/3.png",
+                    "./media/photos/girls/3_1.png",
+                    "./media/photos/girls/3_2.png",
+                    "./media/photos/girls/3_3.png"
+                ],
+                description: "Sinnliche Italienerin mit mediterraner Leidenschaft und temperamentvoller Ausstrahlung.",
+                features: [
+                    "Italienisch, Deutsch, Englisch",
+                    "Leidenschaft & Sinnlichkeit", 
+                    "Striptease & Tantra",
+                    "Erotische Massagen & Körperkontakt"
+                ],
+                badge: "🔥 Leidenschaft",
+                whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Elena."
+            },
+            {
+                id: 4,
+                name: "Sophie",
+                age: "24",
+                height: "168cm", 
+                images: [
+                    "./media/photos/girls/4.png",
+                    "./media/photos/girls/4_1.png",
+                    "./media/photos/girls/4_2.png",
+                    "./media/photos/girls/4_3.png"
+                ],
+                description: "Elegante Schweizerin mit anspruchsvoller Ausstrahlung und diskretem Charme.",
+                features: [
+                    "Deutsch, Französisch, Englisch",
+                    "Elegante Dinner Begleitung",
+                    "Diskrete Business Treffen", 
+                    "GFE & Luxus Service"
+                ],
+                badge: "💎 Elegant",
+                whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Sophie."
+            },
+            {
+                id: 5,
+                name: "Mia",
+                age: "26",
+                height: "171cm",
+                images: [
+                    "./media/photos/girls/5.png",
+                    "./media/photos/girls/5_1.png",
+                    "./media/photos/girls/5_2.png",
+                    "./media/photos/girls/5_3.png"
+                ],
+                description: "Energische Brasilianerin mit lebensfroher Ausstrahlung und tänzerischer Grazie.",
+                features: [
+                    "Portugiesisch, Deutsch, Englisch",
+                    "Tanz & Erotik",
+                    "Energie & Lebensfreude",
+                    "Sensuelle Massagen"
+                ],
+                badge: "💃 Energie",
+                whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Mia."
+            },
+            {
+                id: 6,
+                name: "Lena",
+                age: "28",
+                height: "174cm",
+                images: [
+                    "./media/photos/girls/2.png",
+                    "./media/photos/girls/2_1.png",
+                    "./media/photos/girls/2_2.png",
+                    "./media/photos/girls/2_3.png"
+                ],
+                description: "Erfahrene Deutsche mit mütterlicher Fürsorge und tiefgehender Intimität.",
+                features: [
+                    "Deutsch, Englisch",
+                    "MILF Experience",
+                    "Fetisch freundlich",
+                    "Intensive GFE Erfahrung"
+                ],
+                badge: "🌹 Erfahren",
+                whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Lena."
+            }
+        ];
+
+        // Render Girls Gallery
+        function renderGirlsGallery() {
+            const container = document.getElementById('girlsShowcase');
+            
+            girlsData.forEach(girl => {
+                const girlCard = document.createElement('div');
+                girlCard.className = 'girl-card';
+                girlCard.innerHTML = `
+                    <div class="girl-badge">${girl.badge}</div>
+                    <div class="girl-img-container">
+                        <div class="girl-carousel" id="carousel-${girl.id}">
+                            <div class="girl-carousel-inner">
+                                ${girl.images.map((img, index) => `
+                                    <div class="girl-carousel-slide">
+                                        <img src="${img}" alt="${girl.name}" class="girl-img" 
+                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                        <div class="girl-img-placeholder" style="display: ${index === 0 ? 'flex' : 'none'}">
+                                            ${girl.name}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            ${girl.images.length > 1 ? `
+                                <button class="carousel-arrow carousel-prev" onclick="prevSlide(${girl.id})">❮</button>
+                                <button class="carousel-arrow carousel-next" onclick="nextSlide(${girl.id})">❯</button>
+                                <div class="carousel-controls">
+                                    ${girl.images.map((_, index) => `
+                                        <div class="carousel-dot ${index === 0 ? 'active' : ''}" 
+                                             onclick="goToSlide(${girl.id}, ${index})"></div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    <div class="girl-info">
+                        <h3 class="girl-name">${girl.name}</h3>
+                        <div class="girl-stats">
+                            <span class="girl-stat">${girl.age} Jahre</span>
+                            <span class="girl-stat">${girl.height}</span>
+                        </div>
+                        <p class="girl-desc">${girl.description}</p>
+                        <ul class="girl-features">
+                            ${girl.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <div class="girl-actions">
+                            <a href="${girl.whatsapp}" class="btn btn-whatsapp btn-small" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Buchen
+                            </a>
+                            <a href="tel:+41791234567" class="btn btn-small">
+                                <i class="fas fa-phone"></i> Anruf
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(girlCard);
+            });
+        }
+
+        // Carousel Functions
+        const carouselStates = {};
+
+        function initializeCarousel(girlId, imageCount) {
+            carouselStates[girlId] = {
+                currentSlide: 0,
+                totalSlides: imageCount
+            };
+        }
+
+        function nextSlide(girlId) {
+            const state = carouselStates[girlId];
+            state.currentSlide = (state.currentSlide + 1) % state.totalSlides;
+            updateCarousel(girlId);
+        }
+
+        function prevSlide(girlId) {
+            const state = carouselStates[girlId];
+            state.currentSlide = (state.currentSlide - 1 + state.totalSlides) % state.totalSlides;
+            updateCarousel(girlId);
+        }
+
+        function goToSlide(girlId, slideIndex) {
+            carouselStates[girlId].currentSlide = slideIndex;
+            updateCarousel(girlId);
+        }
+
+        function updateCarousel(girlId) {
+            const state = carouselStates[girlId];
+            const carouselInner = document.querySelector(`#carousel-${girlId} .girl-carousel-inner`);
+            const dots = document.querySelectorAll(`#carousel-${girlId} .carousel-dot`);
+            
+            carouselInner.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === state.currentSlide);
+            });
+        }
+
+        // FAQ Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize girls gallery
+            girlsData.forEach(girl => {
+                initializeCarousel(girl.id, girl.images.length);
+            });
+            renderGirlsGallery();
+
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Parallax background effect
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.parallax-bg');
+                if (parallax) {
+                    parallax.style.transform = `translateY(${scrolled * 0.4}px)`;
+                }
+            });
+        });
+
+        // Image error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.girl-img').forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    const placeholder = this.nextElementSibling;
+                    if (placeholder && placeholder.classList.contains('girl-img-placeholder')) {
+                        placeholder.style.display = 'flex';
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
