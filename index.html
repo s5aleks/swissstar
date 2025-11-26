@@ -242,6 +242,25 @@
             padding-top: 80px;
         }
 
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
@@ -351,7 +370,7 @@
 
         .girl-img-container {
             width: 100%;
-            height: 350px;
+            height: 450px;
             position: relative;
             overflow: hidden;
         }
@@ -382,6 +401,12 @@
             object-fit: cover;
         }
 
+        .girl-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .girl-img-placeholder {
             width: 100%;
             height: 100%;
@@ -392,6 +417,18 @@
             color: var(--gold);
             font-size: 1.2rem;
             font-weight: bold;
+        }
+
+        .video-indicator {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            z-index: 2;
         }
 
         .carousel-controls {
@@ -772,7 +809,7 @@
             }
 
             .girl-img-container {
-                height: 300px;
+                height: 400px;
             }
 
             .carousel-arrow {
@@ -800,7 +837,7 @@
             }
 
             .girl-img-container {
-                height: 250px;
+                height: 350px;
             }
 
             .quick-contact {
@@ -819,10 +856,10 @@
     <div class="age-verification" id="ageVerification">
         <div class="age-modal">
             <div class="logo-large">
-    <img src="./media/logo.png" alt="Swiss Star" 
-         onerror="this.style.display='none'; this.parentNode.innerHTML='⭐'" 
-         style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
-</div>
+                <img src="./media/logo.png" alt="Swiss Star" 
+                     onerror="this.style.display='none'; this.parentNode.innerHTML='⭐'" 
+                     style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
             <h2>Willkommen bei Swiss Star</h2>
             <p>Um unsere exklusiven Dienstleistungen zu erkunden, bestätigen Sie bitte, dass Sie mindestens 18 Jahre alt sind.</p>
             <div class="age-buttons">
@@ -831,8 +868,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Header -->
     <header class="main-header">
@@ -869,22 +904,26 @@
 
     <!-- Hero Section -->
     <section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Swiss Star</h1>
-            <p>Zürichs exklusivstes Escort-Agency. Premium Begleiterinnen, absolute Diskretion, unvergessliche Erlebnisse.</p>
-            <div class="hero-buttons">
-                <a href="#gallery" class="btn">Mädchen entdecken</a>
-                <a href="https://wa.me/41791234567" class="btn btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Jetzt buchen
-                </a>
-                <a href="tel:+41791234567" class="btn btn-phone">
-                    <i class="fas fa-phone"></i> Sofort anruf
-                </a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="./media/logo.png" alt="Swiss Star" 
+                         onerror="this.style.display='none'; this.parentNode.innerHTML='⭐'">
+                </div>
+                <h1>Swiss Star</h1>
+                <p>Zürichs exklusivstes Escort-Agency. Premium Begleiterinnen, absolute Diskretion, unvergessliche Erlebnisse.</p>
+                <div class="hero-buttons">
+                    <a href="#gallery" class="btn">Mädchen entdecken</a>
+                    <a href="https://wa.me/41791234567" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Jetzt buchen
+                    </a>
+                    <a href="tel:+41791234567" class="btn btn-phone">
+                        <i class="fas fa-phone"></i> Sofort anruf
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Features -->
     <section>
@@ -1060,11 +1099,11 @@
                 age: "25",
                 height: "175cm",
                 images: [
-                    "./media/photos/girls/1.png",
-                    "./media/photos/girls/1_1.png", 
+                    "./media/photos/girls/1_1.png",
                     "./media/photos/girls/1_2.png",
                     "./media/photos/girls/1_3.png"
                 ],
+                video: "./media/photos/girls/1.mp4",
                 description: "Leidenschaftliche Französin mit Sinn für Romantik und intensiven Momenten.",
                 features: [
                     "Französisch, Deutsch, Spanisch",
@@ -1081,11 +1120,11 @@
                 age: "23",
                 height: "169cm",
                 images: [
-                    "./media/photos/girls/6.png",
                     "./media/photos/girls/6_1.png",
                     "./media/photos/girls/6_2.png", 
                     "./media/photos/girls/6_3.png"
                 ],
+                video: "./media/photos/girls/6.mp4",
                 description: "Romantische Träumerin mit herzerwärmendem Lächeln für zärtliche Momente.",
                 features: [
                     "Deutsch, Französisch",
@@ -1094,7 +1133,7 @@
                     "Erotische Massagen & Body to Body"
                 ],
                 badge: "💖 Romantik", 
-                               whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Natalie."
+                whatsapp: "https://wa.me/41791234567?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20Natalie."
             },
             {
                 id: 3,
@@ -1102,11 +1141,11 @@
                 age: "27", 
                 height: "172cm",
                 images: [
-                    "./media/photos/girls/3.png",
                     "./media/photos/girls/3_1.png",
                     "./media/photos/girls/3_2.png",
                     "./media/photos/girls/3_3.png"
                 ],
+                video: "./media/photos/girls/3.mp4",
                 description: "Sinnliche Italienerin mit mediterraner Leidenschaft und temperamentvoller Ausstrahlung.",
                 features: [
                     "Italienisch, Deutsch, Englisch",
@@ -1123,11 +1162,11 @@
                 age: "24",
                 height: "168cm", 
                 images: [
-                    "./media/photos/girls/4.png",
                     "./media/photos/girls/4_1.png",
                     "./media/photos/girls/4_2.png",
                     "./media/photos/girls/4_3.png"
                 ],
+                video: "./media/photos/girls/4.mp4",
                 description: "Elegante Schweizerin mit anspruchsvoller Ausstrahlung und diskretem Charme.",
                 features: [
                     "Deutsch, Französisch, Englisch",
@@ -1144,11 +1183,11 @@
                 age: "26",
                 height: "171cm",
                 images: [
-                    "./media/photos/girls/5.png",
                     "./media/photos/girls/5_1.png",
                     "./media/photos/girls/5_2.png",
                     "./media/photos/girls/5_3.png"
                 ],
+                video: "./media/photos/girls/5.mp4",
                 description: "Energische Brasilianerin mit lebensfroher Ausstrahlung und tänzerischer Grazie.",
                 features: [
                     "Portugiesisch, Deutsch, Englisch",
@@ -1165,11 +1204,11 @@
                 age: "28",
                 height: "174cm",
                 images: [
-                    "./media/photos/girls/2.png",
                     "./media/photos/girls/2_1.png",
                     "./media/photos/girls/2_2.png",
                     "./media/photos/girls/2_3.png"
                 ],
+                video: "./media/photos/girls/2.mp4",
                 description: "Erfahrene Deutsche mit mütterlicher Fürsorge und tiefgehender Intimität.",
                 features: [
                     "Deutsch, Englisch",
@@ -1184,69 +1223,143 @@
 
         // Render Girls Gallery
         function renderGirlsGallery() {
-            const container = document.getElementById('girlsShowcase');
-            
-            girlsData.forEach(girl => {
-                const girlCard = document.createElement('div');
-                girlCard.className = 'girl-card';
-                girlCard.innerHTML = `
-                    <div class="girl-badge">${girl.badge}</div>
-                    <div class="girl-img-container">
-                        <div class="girl-carousel" id="carousel-${girl.id}">
-                            <div class="girl-carousel-inner">
-                                ${girl.images.map((img, index) => `
-                                    <div class="girl-carousel-slide">
-                                        <img src="${img}" alt="${girl.name}" class="girl-img" 
+    const container = document.getElementById('girlsShowcase');
+    
+    girlsData.forEach(girl => {
+        const allMedia = [...girl.images];
+        if (girl.video) {
+            allMedia.push(girl.video);
+        }
+        
+        const girlCard = document.createElement('div');
+        girlCard.className = 'girl-card';
+        girlCard.innerHTML = `
+            <div class="girl-badge">${girl.badge}</div>
+            <div class="girl-img-container">
+                <div class="girl-carousel" id="carousel-${girl.id}">
+                    <div class="girl-carousel-inner">
+                        ${allMedia.map((media, index) => {
+                            const isVideo = media.endsWith('.mp4');
+                            return `
+                                <div class="girl-carousel-slide">
+                                    ${isVideo ? `
+                                        <video class="girl-video" muted loop playsinline autoplay>
+                                            <source src="${media}" type="video/mp4">
+                                            Ihr Browser unterstützt das Video-Tag nicht.
+                                        </video>
+                                        <div class="video-indicator">VIDEO</div>
+                                    ` : `
+                                        <img src="${media}" alt="${girl.name}" class="girl-img" 
                                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                         <div class="girl-img-placeholder" style="display: ${index === 0 ? 'flex' : 'none'}">
                                             ${girl.name}
                                         </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                            ${girl.images.length > 1 ? `
-                                <button class="carousel-arrow carousel-prev" onclick="prevSlide(${girl.id})">❮</button>
-                                <button class="carousel-arrow carousel-next" onclick="nextSlide(${girl.id})">❯</button>
-                                <div class="carousel-controls">
-                                    ${girl.images.map((_, index) => `
-                                        <div class="carousel-dot ${index === 0 ? 'active' : ''}" 
-                                             onclick="goToSlide(${girl.id}, ${index})"></div>
-                                    `).join('')}
+                                    `}
                                 </div>
-                            ` : ''}
-                        </div>
+                            `;
+                        }).join('')}
                     </div>
-                    <div class="girl-info">
-                        <h3 class="girl-name">${girl.name}</h3>
-                        <div class="girl-stats">
-                            <span class="girl-stat">${girl.age} Jahre</span>
-                            <span class="girl-stat">${girl.height}</span>
+                    ${allMedia.length > 1 ? `
+                        <button class="carousel-arrow carousel-prev" onclick="prevSlide(${girl.id})">❮</button>
+                        <button class="carousel-arrow carousel-next" onclick="nextSlide(${girl.id})">❯</button>
+                        <div class="carousel-controls">
+                            ${allMedia.map((_, index) => `
+                                <div class="carousel-dot ${index === 0 ? 'active' : ''}" 
+                                     onclick="goToSlide(${girl.id}, ${index})"></div>
+                            `).join('')}
                         </div>
-                        <p class="girl-desc">${girl.description}</p>
-                        <ul class="girl-features">
-                            ${girl.features.map(feature => `<li>${feature}</li>`).join('')}
-                        </ul>
-                        <div class="girl-actions">
-                            <a href="${girl.whatsapp}" class="btn btn-whatsapp btn-small" target="_blank">
-                                <i class="fab fa-whatsapp"></i> Buchen
-                            </a>
-                            <a href="tel:+41791234567" class="btn btn-small">
-                                <i class="fas fa-phone"></i> Anruf
-                            </a>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(girlCard);
+                    ` : ''}
+                </div>
+            </div>
+            <div class="girl-info">
+                <h3 class="girl-name">${girl.name}</h3>
+                <div class="girl-stats">
+                    <span class="girl-stat">${girl.age} Jahre</span>
+                    <span class="girl-stat">${girl.height}</span>
+                </div>
+                <p class="girl-desc">${girl.description}</p>
+                <ul class="girl-features">
+                    ${girl.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <div class="girl-actions">
+                    <a href="${girl.whatsapp}" class="btn btn-whatsapp btn-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Buchen
+                    </a>
+                    <a href="tel:+41791234567" class="btn btn-small">
+                        <i class="fas fa-phone"></i> Anruf
+                    </a>
+                </div>
+            </div>
+        `;
+        container.appendChild(girlCard);
+    });
+
+    // Инициализация видео после загрузки DOM
+    initializeVideos();
+}
+
+// Новая функция для управления видео
+function initializeVideos() {
+    const videos = document.querySelectorAll('.girl-video');
+    
+    videos.forEach(video => {
+        // Попытка автовоспроизведения с обработкой ошибок
+        video.play().catch(error => {
+            console.log('Автовоспроизведение заблокировано:', error);
+            // Добавляем обработчик клика для ручного воспроизведения
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+        
+        // Управление видео при переключении слайдов
+        video.addEventListener('pause', function() {
+            video.currentTime = 0;
+        });
+    });
+}
+
+// Обновите функцию переключения слайдов
+function updateCarousel(girlId) {
+    const state = carouselStates[girlId];
+    const carouselInner = document.querySelector(`#carousel-${girlId} .girl-carousel-inner`);
+    const dots = document.querySelectorAll(`#carousel-${girlId} .carousel-dot`);
+    
+    // Пауза всех видео в карусели перед переключением
+    const currentVideos = document.querySelectorAll(`#carousel-${girlId} .girl-video`);
+    currentVideos.forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+    });
+    
+    carouselInner.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+    
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === state.currentSlide);
+    });
+    
+    // Попытка воспроизвести видео на активном слайде
+    setTimeout(() => {
+        const activeSlide = document.querySelector(`#carousel-${girlId} .girl-carousel-slide:nth-child(${state.currentSlide + 1}) .girl-video`);
+        if (activeSlide) {
+            activeSlide.play().catch(error => {
+                console.log('Не удалось воспроизвести видео:', error);
             });
         }
+    }, 300);
+}
 
         // Carousel Functions
         const carouselStates = {};
 
-        function initializeCarousel(girlId, imageCount) {
+        function initializeCarousel(girlId, mediaCount) {
             carouselStates[girlId] = {
                 currentSlide: 0,
-                totalSlides: imageCount
+                totalSlides: mediaCount
             };
         }
 
@@ -1263,7 +1376,8 @@
         }
 
         function goToSlide(girlId, slideIndex) {
-            carouselStates[girlId].currentSlide = slideIndex;
+            const state = carouselStates[girlId];
+            state.currentSlide = slideIndex;
             updateCarousel(girlId);
         }
 
@@ -1283,7 +1397,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize girls gallery
             girlsData.forEach(girl => {
-                initializeCarousel(girl.id, girl.images.length);
+                const mediaCount = girl.images.length + (girl.video ? 1 : 0);
+                initializeCarousel(girl.id, mediaCount);
             });
             renderGirlsGallery();
 
